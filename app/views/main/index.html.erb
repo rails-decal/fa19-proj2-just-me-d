@@ -1,7 +1,38 @@
 <!-- Your code here -->
 
-<h1>Hello hello</h1>
-<% if params[:name] == nil %>
-  <%params[:name] = "nobody given :(" %>
+<!--<h1>Hello hello</h1>-->
+<%# if @name == nil %>
+  <%#@name = "nobody given :(" %>
+<%#end %>
+<%#= "hello " + @name %>
+
+<%# @weather.each do |w| %>
+<!--  <li> <%#= w.temperature %></li>-->
+
+<%#end %>
+
+<!--=================================================-->
+
+<%#= City.all %>
+
+<%= City.all.each do |c| %>
+  <%= c.name %> <br>
+  <%= c.temperature %><br>
+  <%= c.description %><br>
+
 <%end %>
-<%= "hello " + params[:name] %>
+
+
+<%= form_with local: true, method: "get" do |form| %>
+  <%= form.text_field :city %>
+  <%= form.submit %>
+<%end %>
+
+<% if @empty == true %>
+   We weren't given a city, so berkeley will suffice
+<% end %>
+
+<%= @empty %>
+<!--<h1> <%#= @weather[:city] %> </h1>-->
+<h1><%= params[:city] %></h1>
+<h2><%= @weather[:temperature] %> </h2>
