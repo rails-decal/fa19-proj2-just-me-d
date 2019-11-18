@@ -1,1 +1,7 @@
 <!-- Your code here -->
+
+<h1>Hello hello</h1>
+<% if params[:name] == nil %>
+  <%params[:name] = "nobody given :(" %>
+<%end %>
+<%= "hello " + params[:name] %>
